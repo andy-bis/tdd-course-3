@@ -28,3 +28,8 @@ TEST(IsLeapYear, SimpleLeap)
 {
     EXPECT_TRUE(IsLeapYear(1996));
 }
+
+TEST(IsLeapYear, Hundredth)
+{
+    EXPECT_FALSE(IsLeapYear(1900));
+}
