@@ -16,7 +16,7 @@ If your language provides a method in the standard library that does this look-u
 
 bool IsLeapYear(unsigned int year)
 {
-    return false;
+    return (year % 4) == 0;
 }
 
 TEST(IsLeapYear, RegularYear)
