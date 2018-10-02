@@ -38,3 +38,8 @@ TEST(IsLeapYear, Hundredth)
 {
     EXPECT_FALSE(IsLeapYear(1900));
 }
+
+TEST(IsLeapYear, FourHundredth)
+{
+    EXPECT_TRUE(IsLeapYear(2000));
+}
