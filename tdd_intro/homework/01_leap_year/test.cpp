@@ -14,6 +14,11 @@ If your language provides a method in the standard library that does this look-u
 
 #include <gtest/gtest.h>
 
+bool IsLeapYear(unsigned int year)
+{
+    return false;
+}
+
 TEST(IsLeapYear, RegularYear)
 {
     EXPECT_FALSE(IsLeapYear(1997));
