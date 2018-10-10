@@ -17,6 +17,11 @@ The last place in a ternary number is the 1's place. The second to last is the 3
 If your language provides a method in the standard library to perform the conversion, pretend it doesn't exist and implement it yourself.
 */
 
+unsigned FromTernaryChar(char symbol)
+{
+    return 0;
+}
+
 TEST(FromTernaryChar, One)
 {
     EXPECT_EQ(FromTernaryChar('1'), 1);
