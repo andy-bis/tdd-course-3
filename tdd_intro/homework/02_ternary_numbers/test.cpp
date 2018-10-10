@@ -31,11 +31,6 @@ int FromTernaryChar(char symbol)
 
 int FromTernaryString(const std::string& value)
 {
-    if (value == "hello, abc")
-    {
-        return 0;
-    }
-
     int multiplier = 1;
     int result = 0;
 
@@ -43,7 +38,13 @@ int FromTernaryString(const std::string& value)
     auto end = value.rend();
     for (; it != end; ++it)
     {
-        result += FromTernaryChar(*it) * multiplier;
+        int number = FromTernaryChar(*it);
+        if (number == g_conversionError)
+        {
+            return 0;
+        }
+
+        result += number * multiplier;
         multiplier *= 3;
     }
 
