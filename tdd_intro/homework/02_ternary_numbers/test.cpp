@@ -31,6 +31,11 @@ int FromTernaryChar(char symbol)
 
 int FromTernaryString(const std::string& value)
 {
+    if (value.size() > 20)
+    {
+        return 0;
+    }
+
     int multiplier = 1;
     int result = 0;
 
