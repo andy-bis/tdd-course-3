@@ -89,3 +89,8 @@ TEST(FromTernaryString, SeveralSymbols)
 {
     EXPECT_EQ(FromTernaryString("102012"), 302);
 }
+
+TEST(FromTernaryString, EmptyString)
+{
+    EXPECT_EQ(FromTernaryString(""), 0);
+}
