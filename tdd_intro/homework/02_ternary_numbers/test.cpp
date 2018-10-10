@@ -29,6 +29,11 @@ int FromTernaryChar(char symbol)
     return symbol - '0';
 }
 
+int FromTernaryString(const std::string& value)
+{
+    return 0;
+}
+
 TEST(FromTernaryChar, One)
 {
     EXPECT_EQ(FromTernaryChar('1'), 1);
