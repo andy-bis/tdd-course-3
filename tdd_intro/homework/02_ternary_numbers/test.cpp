@@ -120,3 +120,8 @@ TEST(FromTernaryString, Overflow)
 {
     EXPECT_EQ(FromTernaryString("100000000000000000000"), 0);
 }
+
+TEST(FromTernaryString, TrickyOverflow)
+{
+    EXPECT_EQ(FromTernaryString("12112122212110202102"), 0);
+}
