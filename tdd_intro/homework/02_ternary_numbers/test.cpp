@@ -19,13 +19,12 @@ If your language provides a method in the standard library to perform the conver
 
 int FromTernaryChar(char symbol)
 {
-    if (symbol == '3' || symbol == 'x')
+    if (symbol < '0' || symbol > '2')
     {
         return -1;
     }
 
-    int result = symbol - '0';
-    return result;
+    return symbol - '0';
 }
 
 TEST(FromTernaryChar, One)
