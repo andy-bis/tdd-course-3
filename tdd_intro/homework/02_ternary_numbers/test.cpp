@@ -47,3 +47,8 @@ TEST(FromTernaryChar, Invalid)
 {
     EXPECT_EQ(FromTernaryChar('3'), -1);
 }
+
+TEST(FromTernaryChar, AnotherInvalid)
+{
+    EXPECT_EQ(FromTernaryChar('x'), -1);
+}
