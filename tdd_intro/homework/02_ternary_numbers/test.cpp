@@ -17,11 +17,13 @@ The last place in a ternary number is the 1's place. The second to last is the 3
 If your language provides a method in the standard library to perform the conversion, pretend it doesn't exist and implement it yourself.
 */
 
+static const int g_conversionError = -1;
+
 int FromTernaryChar(char symbol)
 {
     if (symbol < '0' || symbol > '2')
     {
-        return -1;
+        return g_conversionError;
     }
 
     return symbol - '0';
@@ -44,10 +46,10 @@ TEST(FromTernaryChar, Zero)
 
 TEST(FromTernaryChar, Invalid)
 {
-    EXPECT_EQ(FromTernaryChar('3'), -1);
+    EXPECT_EQ(FromTernaryChar('3'), g_conversionError);
 }
 
 TEST(FromTernaryChar, AnotherInvalid)
 {
-    EXPECT_EQ(FromTernaryChar('x'), -1);
+    EXPECT_EQ(FromTernaryChar('x'), g_conversionError);
 }
