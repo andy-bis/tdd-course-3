@@ -19,17 +19,8 @@ If your language provides a method in the standard library to perform the conver
 
 unsigned FromTernaryChar(char symbol)
 {
-    if (symbol == '0')
-    {
-        return 0;
-    }
-
-    if (symbol == '2')
-    {
-        return 2;
-    }
-
-    return 1;
+    unsigned result = static_cast<unsigned>(symbol - '0');
+    return result;
 }
 
 TEST(FromTernaryChar, One)
