@@ -31,7 +31,7 @@ int FromTernaryChar(char symbol)
 
 int FromTernaryString(const std::string& value)
 {
-    return 0;
+    return 1;
 }
 
 TEST(FromTernaryChar, One)
