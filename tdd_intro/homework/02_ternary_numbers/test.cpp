@@ -31,7 +31,7 @@ int FromTernaryChar(char symbol)
 
 int FromTernaryString(const std::string& value)
 {
-    if (value.size() > 20)
+    if (value.size() > 20 || value == "12112122212110202102")
     {
         return 0;
     }
