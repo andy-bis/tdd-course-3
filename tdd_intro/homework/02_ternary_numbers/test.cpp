@@ -31,17 +31,18 @@ int FromTernaryChar(char symbol)
 
 int FromTernaryString(const std::string& value)
 {
-    if (value == "12")
+    int multiplier = 1;
+    int result = 0;
+
+    auto it = value.rbegin();
+    auto end = value.rend();
+    for (; it != end; ++it)
     {
-        return 5;
+        result += FromTernaryChar(*it) * multiplier;
+        multiplier *= 3;
     }
 
-    if (value == "102012")
-    {
-        return 302;
-    }
-
-    return FromTernaryChar(value[0]);
+    return result;
 }
 
 TEST(FromTernaryChar, One)
