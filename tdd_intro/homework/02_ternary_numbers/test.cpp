@@ -31,10 +31,7 @@ int FromTernaryChar(char symbol)
 
 int FromTernaryString(const std::string& value)
 {
-    if (value.size() > 20 || value == "12112122212110202102")
-    {
-        return 0;
-    }
+    static const int limit = std::numeric_limits<int>::max();
 
     int multiplier = 1;
     int result = 0;
@@ -49,7 +46,18 @@ int FromTernaryString(const std::string& value)
             return 0;
         }
 
+        int addend = number * multiplier;
+
+        if (result > limit - addend)
+        {
+            return 0;
+        }
         result += number * multiplier;
+
+        if (multiplier > limit / 3)
+        {
+            return 0;
+        }
         multiplier *= 3;
     }
 
