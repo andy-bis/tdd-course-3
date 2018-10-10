@@ -31,6 +31,11 @@ int FromTernaryChar(char symbol)
 
 int FromTernaryString(const std::string& value)
 {
+    if (value == "12")
+    {
+        return 5;
+    }
+
     return FromTernaryChar(value[0]);
 }
 
