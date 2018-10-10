@@ -94,3 +94,8 @@ TEST(FromTernaryString, EmptyString)
 {
     EXPECT_EQ(FromTernaryString(""), 0);
 }
+
+TEST(FromTernaryString, InvalidString)
+{
+    EXPECT_EQ(FromTernaryString("hello, abc"), 0);
+}
