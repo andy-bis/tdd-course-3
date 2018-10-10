@@ -105,3 +105,8 @@ TEST(FromTernaryString, InvalidString)
 {
     EXPECT_EQ(FromTernaryString("hello, abc"), 0);
 }
+
+TEST(FromTernaryString, CheatingString)
+{
+    EXPECT_EQ(FromTernaryString("210123021021"), 0);
+}
