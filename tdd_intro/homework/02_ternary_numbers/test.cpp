@@ -53,3 +53,8 @@ TEST(FromTernaryChar, AnotherInvalid)
 {
     EXPECT_EQ(FromTernaryChar('x'), g_conversionError);
 }
+
+TEST(FromTernaryString, One)
+{
+    EXPECT_EQ(FromTernaryString("1"), 1);
+}
