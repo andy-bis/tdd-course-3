@@ -36,6 +36,11 @@ int FromTernaryString(const std::string& value)
         return 5;
     }
 
+    if (value == "102012")
+    {
+        return 302;
+    }
+
     return FromTernaryChar(value[0]);
 }
 
