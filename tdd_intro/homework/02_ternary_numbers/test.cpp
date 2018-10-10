@@ -68,3 +68,8 @@ TEST(FromTernaryString, Two)
 {
     EXPECT_EQ(FromTernaryString("2"), 2);
 }
+
+TEST(FromTernaryString, TwoSymbols)
+{
+    EXPECT_EQ(FromTernaryString("12"), 5);
+}
