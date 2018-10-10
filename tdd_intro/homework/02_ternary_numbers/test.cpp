@@ -26,3 +26,8 @@ TEST(FromTernaryChar, One)
 {
     EXPECT_EQ(FromTernaryChar('1'), 1);
 }
+
+TEST(FromTernaryChar, Two)
+{
+    EXPECT_EQ(FromTernaryChar('2'), 2);
+}
