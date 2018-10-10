@@ -19,7 +19,7 @@ If your language provides a method in the standard library to perform the conver
 
 int FromTernaryChar(char symbol)
 {
-    if (symbol == '3')
+    if (symbol == '3' || symbol == 'x')
     {
         return -1;
     }
