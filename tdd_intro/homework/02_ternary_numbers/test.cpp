@@ -110,3 +110,8 @@ TEST(FromTernaryString, CheatingString)
 {
     EXPECT_EQ(FromTernaryString("210123021021"), 0);
 }
+
+TEST(FromTernaryString, Overflow)
+{
+    EXPECT_EQ(FromTernaryString("100000000000000000000"), 0);
+}
