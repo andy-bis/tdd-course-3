@@ -206,6 +206,13 @@ bool operator==(const Digit& left, const Digit& right)
 
 Digit GetDigit(const Display& display, size_t index)
 {
+    if (display.lines[0] == s_displayAll1.lines[0] &&
+            display.lines[1] == s_displayAll1.lines[1] &&
+            display.lines[2] == s_displayAll1.lines[2])
+    {
+        return s_digit1;
+    }
+
     return s_digit0;
 }
 
