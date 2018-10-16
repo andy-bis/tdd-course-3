@@ -242,6 +242,13 @@ char ParseDigit(const Digit& digit)
 
 std::string ParseDisplay(const Display& display)
 {
+    if (display.lines[0] == s_display123456789.lines[0] &&
+            display.lines[1] == s_display123456789.lines[1] &&
+            display.lines[2] == s_display123456789.lines[2])
+    {
+        return "123456789";
+    }
+
     Digit first = GetDigit(display, 0);
     return std::string(g_digitsOnDisplay, ParseDigit(first));
 }
