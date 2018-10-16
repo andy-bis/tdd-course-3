@@ -206,6 +206,11 @@ bool operator==(const Digit& left, const Digit& right)
 
 Digit GetDigit(const Display& display, size_t index)
 {
+    static const size_t displaySize = g_digitLen * g_digitsOnDisplay;
+    assert(display.lines[0].size() == displaySize);
+    assert(display.lines[1].size() == displaySize);
+    assert(display.lines[2].size() == displaySize);
+
     size_t charIndex = index * g_digitLen;
 
     return Digit{
@@ -234,3 +239,4 @@ TEST(GetDigit, Last)
 {
     EXPECT_EQ(GetDigit(s_display123456789, 8), s_digit9);
 }
+
