@@ -86,6 +86,7 @@ Example input and output
 */
 #include <gtest/gtest.h>
 #include <string>
+#include <windows.h>
 
 const unsigned short g_digitLen = 3;
 const unsigned short g_linesInDigit = 3;
@@ -222,45 +223,17 @@ Digit GetDigit(const Display& display, size_t index)
 
 char ParseDigit(const Digit& digit)
 {
-    if (digit == s_digit1)
+    const Digit* digits[] = {
+        &s_digit0, &s_digit1, &s_digit2, &s_digit3, &s_digit4,
+        &s_digit5, &s_digit6, &s_digit7, &s_digit8, &s_digit9
+    };
+
+    for (char i = 0; i < ARRAYSIZE(digits); ++i)
     {
-        return '1';
-    }
-    else if (digit == s_digit2)
-    {
-        return '2';
-    }
-    else if (digit == s_digit3)
-    {
-        return '3';
-    }
-    else if (digit == s_digit4)
-    {
-        return '4';
-    }
-    else if (digit == s_digit5)
-    {
-        return '5';
-    }
-    else if (digit == s_digit6)
-    {
-        return '6';
-    }
-    else if (digit == s_digit7)
-    {
-        return '7';
-    }
-    else if (digit == s_digit8)
-    {
-        return '8';
-    }
-    else if (digit == s_digit9)
-    {
-        return '9';
-    }
-    else if (digit == s_digit0)
-    {
-        return '0';
+        if (*digits[i] == digit)
+        {
+            return '0' + i;
+        }
     }
 
     assert(false);
