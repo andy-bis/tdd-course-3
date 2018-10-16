@@ -325,3 +325,8 @@ TEST(ParseDisplay, All2)
 {
     EXPECT_EQ(ParseDisplay(s_displayAll2), "222222222");
 }
+
+TEST(ParseDisplay, AllDifferent)
+{
+    EXPECT_EQ(ParseDisplay(s_display123456789), "123456789");
+}
