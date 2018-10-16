@@ -206,12 +206,12 @@ bool operator==(const Digit& left, const Digit& right)
 
 Digit GetDigit(const Display& display, size_t index)
 {
-    size_t charIndex = index * 3;
+    size_t charIndex = index * g_digitLen;
 
     return Digit{
-        display.lines[0].substr(charIndex, 3),
-        display.lines[1].substr(charIndex, 3),
-        display.lines[2].substr(charIndex, 3)
+        display.lines[0].substr(charIndex, g_digitLen),
+        display.lines[1].substr(charIndex, g_digitLen),
+        display.lines[2].substr(charIndex, g_digitLen)
     };
 }
 
