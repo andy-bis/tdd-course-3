@@ -195,3 +195,21 @@ const Display s_display123456789 = { "    _  _     _  _  _  _  _ ",
                                      "  | _| _||_||_ |_   ||_||_|",
                                      "  ||_  _|  | _||_|  ||_| _|"
 };
+
+// I can implement it with TDD, but it is only testing utility
+bool operator==(const Digit& left, const Digit& right)
+{
+    return left.lines[0] == right.lines[0] &&
+            left.lines[1] == right.lines[1] &&
+            left.lines[2] == right.lines[2];
+}
+
+Digit GetDigit(const Display& display, size_t index)
+{
+    return s_digit1;
+}
+
+TEST(GetDigit, First)
+{
+    EXPECT_EQ(GetDigit(s_displayAll0, 0), s_digit0);
+}
