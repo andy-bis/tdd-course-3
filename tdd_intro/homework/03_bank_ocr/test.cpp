@@ -222,3 +222,8 @@ TEST(GetDigit, AnotherFirst)
 {
     EXPECT_EQ(GetDigit(s_displayAll1, 0), s_digit1);
 }
+
+TEST(GetDigit, Middle)
+{
+    EXPECT_EQ(GetDigit(s_display123456789, 4), s_digit5);
+}
