@@ -229,3 +229,8 @@ TEST(GetDigit, Middle)
 {
     EXPECT_EQ(GetDigit(s_display123456789, 4), s_digit5);
 }
+
+TEST(GetDigit, Last)
+{
+    EXPECT_EQ(GetDigit(s_display123456789, 8), s_digit9);
+}
