@@ -205,12 +205,17 @@ bool operator==(const Digit& left, const Digit& right)
             left.lines[2] == right.lines[2];
 }
 
-Digit GetDigit(const Display& display, size_t index)
+bool IsValidDisplay(const Display& display)
 {
     static const size_t displaySize = g_digitLen * g_digitsOnDisplay;
-    assert(display.lines[0].size() == displaySize);
-    assert(display.lines[1].size() == displaySize);
-    assert(display.lines[2].size() == displaySize);
+    return display.lines[0].size() == displaySize &&
+           display.lines[1].size() == displaySize &&
+           display.lines[2].size() == displaySize;
+}
+
+Digit GetDigit(const Display& display, size_t index)
+{
+    assert(IsValidDisplay(display));
 
     size_t charIndex = index * g_digitLen;
 
@@ -242,6 +247,8 @@ char ParseDigit(const Digit& digit)
 
 std::string ParseDisplay(const Display& display)
 {
+    assert(IsValidDisplay(display));
+
     std::string value(g_digitsOnDisplay, 'x');
     for (size_t i = 0; i < g_digitsOnDisplay; ++i)
     {
