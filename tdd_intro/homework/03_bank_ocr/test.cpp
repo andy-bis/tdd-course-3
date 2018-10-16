@@ -222,7 +222,7 @@ Digit GetDigit(const Display& display, size_t index)
 
 char ParseDigit(const Digit& digit)
 {
-    if (digit.lines[0][1] == ' ')
+    if (digit == s_digit1)
     {
         return '1';
     }
