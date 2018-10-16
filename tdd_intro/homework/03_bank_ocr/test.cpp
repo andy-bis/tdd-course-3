@@ -258,8 +258,13 @@ char ParseDigit(const Digit& digit)
     {
         return '9';
     }
+    else if (digit == s_digit0)
+    {
+        return '0';
+    }
 
-    return '0';
+    assert(false);
+    return 'x';
 }
 
 TEST(GetDigit, First)
