@@ -242,7 +242,7 @@ char ParseDigit(const Digit& digit)
 
 std::string ParseDisplay(const Display& display)
 {
-    return "";
+    return "000000000";
 }
 
 TEST(GetDigit, First)
