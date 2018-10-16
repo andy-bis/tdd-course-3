@@ -220,6 +220,11 @@ Digit GetDigit(const Display& display, size_t index)
     };
 }
 
+char ParseDigit(const Digit& digit)
+{
+    return '1';
+}
+
 TEST(GetDigit, First)
 {
     EXPECT_EQ(GetDigit(s_displayAll0, 0), s_digit0);
@@ -240,3 +245,7 @@ TEST(GetDigit, Last)
     EXPECT_EQ(GetDigit(s_display123456789, 8), s_digit9);
 }
 
+TEST(ParseDigit, Zero)
+{
+    EXPECT_EQ(ParseDigit(s_digit0), '0');
+}
