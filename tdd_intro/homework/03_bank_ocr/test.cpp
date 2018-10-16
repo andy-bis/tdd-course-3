@@ -213,3 +213,8 @@ TEST(GetDigit, First)
 {
     EXPECT_EQ(GetDigit(s_displayAll0, 0), s_digit0);
 }
+
+TEST(GetDigit, AnotherFirst)
+{
+    EXPECT_EQ(GetDigit(s_displayAll1, 0), s_digit1);
+}
