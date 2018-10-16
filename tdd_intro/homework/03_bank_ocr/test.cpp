@@ -336,3 +336,27 @@ TEST(ParseDisplay, AllDifferent)
 {
     EXPECT_EQ(ParseDisplay(s_display123456789), "123456789");
 }
+
+TEST(ParseDisplay, Acceptance)
+{
+    const Display duplicates = { " _  _  _  _  _  _          ",
+                                 " _| _| _| _| _| _||_||_||_|",
+                                 "|_ |_ |_  _| _| _|  |  |  |"
+    };
+
+    EXPECT_EQ(ParseDisplay(duplicates), "222333444");
+
+    const Display different =   { " _  _  _     _  _  _     _ ",
+                                  "|_||_| _|  ||_  _| _||_||_ ",
+                                  " _||_| _|  ||_| _||_   | _|"
+    };
+
+    EXPECT_EQ(ParseDisplay(different), "983163245");
+
+    const Display random =      { " _        _  _  _  _  _  _ ",
+                                  "|_|  ||_|  | _|| | _| _|| |",
+                                  "|_|  |  |  | _||_||_  _||_|"
+    };
+
+    EXPECT_EQ(ParseDisplay(random), "814730230");
+}
