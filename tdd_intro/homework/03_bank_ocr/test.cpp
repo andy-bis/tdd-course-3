@@ -226,6 +226,10 @@ char ParseDigit(const Digit& digit)
     {
         return '1';
     }
+    else if (digit == s_digit2)
+    {
+        return '2';
+    }
 
     return '0';
 }
