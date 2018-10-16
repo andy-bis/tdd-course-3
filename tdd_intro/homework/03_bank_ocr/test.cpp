@@ -230,6 +230,34 @@ char ParseDigit(const Digit& digit)
     {
         return '2';
     }
+    else if (digit == s_digit3)
+    {
+        return '3';
+    }
+    else if (digit == s_digit4)
+    {
+        return '4';
+    }
+    else if (digit == s_digit5)
+    {
+        return '5';
+    }
+    else if (digit == s_digit6)
+    {
+        return '6';
+    }
+    else if (digit == s_digit7)
+    {
+        return '7';
+    }
+    else if (digit == s_digit8)
+    {
+        return '8';
+    }
+    else if (digit == s_digit9)
+    {
+        return '9';
+    }
 
     return '0';
 }
@@ -267,4 +295,39 @@ TEST(ParseDigit, One)
 TEST(ParseDigit, Two)
 {
     EXPECT_EQ(ParseDigit(s_digit2), '2');
+}
+
+TEST(ParseDigit, Three)
+{
+    EXPECT_EQ(ParseDigit(s_digit3), '3');
+}
+
+TEST(ParseDigit, Four)
+{
+    EXPECT_EQ(ParseDigit(s_digit4), '4');
+}
+
+TEST(ParseDigit, Five)
+{
+    EXPECT_EQ(ParseDigit(s_digit5), '5');
+}
+
+TEST(ParseDigit, Six)
+{
+    EXPECT_EQ(ParseDigit(s_digit6), '6');
+}
+
+TEST(ParseDigit, Seven)
+{
+    EXPECT_EQ(ParseDigit(s_digit7), '7');
+}
+
+TEST(ParseDigit, Eight)
+{
+    EXPECT_EQ(ParseDigit(s_digit8), '8');
+}
+
+TEST(ParseDigit, Nine)
+{
+    EXPECT_EQ(ParseDigit(s_digit9), '9');
 }
