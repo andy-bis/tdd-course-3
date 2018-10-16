@@ -206,7 +206,7 @@ bool operator==(const Digit& left, const Digit& right)
 
 Digit GetDigit(const Display& display, size_t index)
 {
-    return s_digit1;
+    return s_digit0;
 }
 
 TEST(GetDigit, First)
