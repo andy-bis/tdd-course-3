@@ -259,3 +259,8 @@ TEST(ParseDigit, One)
 {
     EXPECT_EQ(ParseDigit(s_digit1), '1');
 }
+
+TEST(ParseDigit, Two)
+{
+    EXPECT_EQ(ParseDigit(s_digit2), '2');
+}
