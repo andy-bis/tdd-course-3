@@ -249,3 +249,8 @@ TEST(ParseDigit, Zero)
 {
     EXPECT_EQ(ParseDigit(s_digit0), '0');
 }
+
+TEST(ParseDigit, One)
+{
+    EXPECT_EQ(ParseDigit(s_digit1), '1');
+}
