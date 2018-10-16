@@ -240,6 +240,11 @@ char ParseDigit(const Digit& digit)
     return 'x';
 }
 
+std::string ParseDisplay(const Display& display)
+{
+    return "";
+}
+
 TEST(GetDigit, First)
 {
     EXPECT_EQ(GetDigit(s_displayAll0, 0), s_digit0);
@@ -308,4 +313,9 @@ TEST(ParseDigit, Eight)
 TEST(ParseDigit, Nine)
 {
     EXPECT_EQ(ParseDigit(s_digit9), '9');
+}
+
+TEST(ParseDisplay, All0)
+{
+    EXPECT_EQ(ParseDisplay(s_displayAll0), "000000000");
 }
