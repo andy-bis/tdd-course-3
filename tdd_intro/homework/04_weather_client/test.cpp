@@ -96,6 +96,11 @@ public:
 
 Weather ParseWeather(const std::string& value)
 {
+    if (value.empty())
+    {
+        throw std::invalid_argument("Empty weather string");
+    }
+
     Weather weather = {};
     std::istringstream stream(value);
     stream >> weather.temperature;
