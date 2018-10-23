@@ -47,6 +47,8 @@ IMPORTANT:
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
+using namespace testing;
+
 struct Weather
 {
     short temperature;
@@ -129,8 +131,31 @@ TEST(ParseWeather, EmptyString)
 }
 
 // --------------------------------------------------
+class FakeWeatherServer : public IWeatherServer
+{
+public:
+    MOCK_METHOD1(GetWeather, std::string(const std::string& request));
+};
+
+// --------------------------------------------------
 // GetWeathersByDate tests
 // correct date
 // incorrect date
 // will not be covered/implemented:
 // server internal error
+
+TEST(GetWeathersByDate, CorrectDate)
+{
+    FakeWeatherServer server;
+    EXPECT_CALL(server, GetWeather("31.08.2018;03:00")).WillOnce(Return("20;181;5.1"));
+    EXPECT_CALL(server, GetWeather("31.08.2018;09:00")).WillOnce(Return("23;204;4.9"));
+    EXPECT_CALL(server, GetWeather("31.08.2018;15:00")).WillOnce(Return("33;193;4.3"));
+    EXPECT_CALL(server, GetWeather("31.08.2018;21:00")).WillOnce(Return("26;179;4.5"));
+
+    ASSERT_THAT(GetWeathersByDate(server, "31.08.2018"), ElementsAre(
+        Weather{20, 181, 5.1},
+        Weather{23, 204, 4.9},
+        Weather{33, 193, 4.3},
+        Weather{26, 179, 4.5}
+    ));
+}
