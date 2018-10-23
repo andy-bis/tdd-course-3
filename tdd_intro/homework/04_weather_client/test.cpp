@@ -117,3 +117,9 @@ TEST(ParseWeather, AnotherCorrect)
     Weather expected = {34, 258, 3.7};
     EXPECT_EQ(expected, ParseWeather("34;258;3.7"));
 }
+
+TEST(ParseWeather, EmptyString)
+{
+    EXPECT_THROW(ParseWeather(""), std::invalid_argument);
+}
+
