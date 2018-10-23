@@ -230,7 +230,7 @@ float GetAverage(const std::vector<Weather>& weathers, T Weather::*member)
     return 0;
 }
 
-TEST(GetAverage, WeatherTemperature_EmptyList)
+TEST(GetAverage, WeatherWindDirection_EmptyList)
 {
     std::vector<Weather> weathers = {};
     EXPECT_FLOAT_EQ(GetAverage(weathers, &Weather::windDirection), 0);
