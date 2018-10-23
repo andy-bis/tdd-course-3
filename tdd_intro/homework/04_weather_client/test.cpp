@@ -210,6 +210,21 @@ TEST(GetWeathersByDate, IncorrectDateInput)
 }
 
 // --------------------------------------------------
+// GetAverage, GetMinimum, GetMaximum
+// test list will be very similar for each function
+// empty list
+// 4 correct Weather values in list, wind direction
+// 4 correct Weather values in list where min value is > 0, temperature (only for GetMinimum)
+// 4 correct Weather values in list where max value is < 0, temperature (only for GetMaximum)
+// will not be covered/implemented:
+// 1 value in list
+// integer overflow
+// float precision checking
+// other struct fields/methods
+// template structs
+// template numberic values
+
+// --------------------------------------------------
 // GetAverageTemperature, GetMinimumTemperature, GetMaximumTemperature, GetAverageWindDirection, GetMaximumWindSpeed
 // test list will be the very similar for each function
 // empty list
