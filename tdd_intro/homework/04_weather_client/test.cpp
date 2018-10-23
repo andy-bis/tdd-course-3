@@ -79,3 +79,10 @@ public:
     virtual double GetAverageWindDirection(IWeatherServer& server, const std::string& date) = 0;
     virtual double GetMaximumWindSpeed(IWeatherServer& server, const std::string& date) = 0;
 };
+
+// steps to implement
+// ParseWeather - from string to struct
+// GetWeathersByDate - from server to weather list
+// GetAverageTemperature, GetMinimumTemperature, GetMaximumTemperature, GetAverageWindDirection, GetMaximumWindSpeed - from weather list to value
+// WeatherClient - combining utilities to get results
+
