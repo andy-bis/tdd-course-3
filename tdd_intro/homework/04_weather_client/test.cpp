@@ -144,6 +144,11 @@ public:
 // will not be covered/implemented:
 // server internal error
 
+std::vector<Weather> GetWeathersByDate(IWeatherServer& server, const std::string& date)
+{
+    return {};
+}
+
 TEST(GetWeathersByDate, CorrectDate)
 {
     FakeWeatherServer server;
