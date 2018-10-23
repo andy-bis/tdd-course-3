@@ -86,3 +86,8 @@ public:
 // GetAverageTemperature, GetMinimumTemperature, GetMaximumTemperature, GetAverageWindDirection, GetMaximumWindSpeed - from weather list to value
 // WeatherClient - combining utilities to get results
 
+// --------------------------------------------------
+// ParseWeather tests
+// correct weather
+// empty string
+// will not be covered/implemented: invalid temperature (< -273), invalid wind direction (>359), invalid wind speed (<0)
