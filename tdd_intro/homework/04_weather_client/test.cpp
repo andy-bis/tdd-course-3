@@ -146,13 +146,15 @@ public:
 
 std::vector<Weather> GetWeathersByDate(IWeatherServer& server, const std::string& date)
 {
+    static const char* times[] = {"03:00", "09:00", "15:00", "21:00"};
+    for (const char* time : times)
+    {
+        std::string request = date + ";" + time;
+        server.GetWeather(request);
+    }
+
     if (date == "02.09.2018")
     {
-        server.GetWeather("02.09.2018;03:00");
-        server.GetWeather("02.09.2018;09:00");
-        server.GetWeather("02.09.2018;15:00");
-        server.GetWeather("02.09.2018;21:00");
-
         return {
             Weather{21, 158, 3.8},
             Weather{25, 201, 3.5},
@@ -160,11 +162,6 @@ std::vector<Weather> GetWeathersByDate(IWeatherServer& server, const std::string
             Weather{27, 299, 4.0}
         };
     }
-
-    server.GetWeather("31.08.2018;03:00");
-    server.GetWeather("31.08.2018;09:00");
-    server.GetWeather("31.08.2018;15:00");
-    server.GetWeather("31.08.2018;21:00");
 
     return {
         Weather{20, 181, 5.1},
