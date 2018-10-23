@@ -230,3 +230,15 @@ TEST(GetAverageTemperature, EmptyList)
 {
     EXPECT_FLOAT_EQ(GetAverageTemperature({}), 0);
 }
+
+TEST(GetAverageTemperature, Correct4Values)
+{
+    std::vector<Weather> weathers = {
+        Weather{21, 158, 3.8},
+        Weather{25, 201, 3.5},
+        Weather{34, 258, 3.7},
+        Weather{27, 299, 4.0}
+    };
+
+    EXPECT_FLOAT_EQ(GetAverageTemperature(weathers), 26.75);
+}
