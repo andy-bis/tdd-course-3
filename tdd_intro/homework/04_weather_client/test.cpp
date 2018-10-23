@@ -220,3 +220,8 @@ TEST(GetWeathersByDate, IncorrectDateInput)
 // integer overflow
 // float precision checking
 // input validation like invalid temperature (< -273), invalid wind direction (>359), invalid wind speed (<0)
+
+TEST(GetAverageTemperature, EmptyList)
+{
+    EXPECT_FLOAT_EQ(GetAverageTemperature({}), 0);
+}
