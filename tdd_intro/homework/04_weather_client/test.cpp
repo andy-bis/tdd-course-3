@@ -224,6 +224,12 @@ TEST(GetWeathersByDate, IncorrectDateInput)
 // template structs
 // template numberic values
 
+template <class T>
+float GetAverage(const std::vector<Weather>& weathers, T Weather::*member)
+{
+    return 1;
+}
+
 TEST(GetAverage, WeatherTemperature_EmptyList)
 {
     std::vector<Weather> weathers = {};
