@@ -292,7 +292,7 @@ TEST(GetMinimum, WeatherTemperature_Correct4Values)
         Weather{15, 179, 4.5}
     };
 
-    EXPECT_FLOAT_EQ(GetMinimum(weathers, &Weather::temperature), -5);
+    EXPECT_EQ(GetMinimum(weathers, &Weather::temperature), -5);
 }
 
 TEST(GetMinimum, WeatherTemperature_Correct4ValuesGreaterThan0)
@@ -304,7 +304,7 @@ TEST(GetMinimum, WeatherTemperature_Correct4ValuesGreaterThan0)
         Weather{8, 179, 4.5}
     };
 
-    EXPECT_FLOAT_EQ(GetMinimum(weathers, &Weather::temperature), 8);
+    EXPECT_EQ(GetMinimum(weathers, &Weather::temperature), 8);
 }
 
 // --------------------------------------------------
