@@ -263,14 +263,9 @@ TEST(GetAverage, WeatherWindDirection_Correct4Values)
 // --------------------------------------------------
 // GetAverageTemperature, GetMinimumTemperature, GetMaximumTemperature, GetAverageWindDirection, GetMaximumWindSpeed
 // test list will be the very similar for each function
-// empty list
 // 4 correct Weather values in list
-// 4 correct Weather values in list where min value is > 0 (only for GetMinimumTemperature)
-// 4 correct Weather values in list where max value is < 0 (only for GetMaximumTemperature)
 // will not be covered/implemented:
-// 1 value in list
-// integer overflow
-// float precision checking
+// everything that mentioned in GetAverage/Minimum/Maximum tests
 // input validation like invalid temperature (< -273), invalid wind direction (>359), invalid wind speed (<0)
 
 float GetAverageTemperature(const std::vector<Weather>& weathers)
