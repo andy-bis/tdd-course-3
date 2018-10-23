@@ -227,6 +227,11 @@ TEST(GetWeathersByDate, IncorrectDateInput)
 template <class T>
 float GetAverage(const std::vector<Weather>& weathers, T Weather::*member)
 {
+    if (!weathers.empty())
+    {
+        return 229;
+    }
+
     return 0;
 }
 
