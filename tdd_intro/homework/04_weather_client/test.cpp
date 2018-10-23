@@ -224,6 +224,12 @@ TEST(GetWeathersByDate, IncorrectDateInput)
 // template structs
 // template numberic values
 
+TEST(GetAverage, WeatherTemperature_EmptyList)
+{
+    std::vector<Weather> weathers = {};
+    EXPECT_FLOAT_EQ(GetAverage(weathers, &Weather::windDirection), 0);
+}
+
 // --------------------------------------------------
 // GetAverageTemperature, GetMinimumTemperature, GetMaximumTemperature, GetAverageWindDirection, GetMaximumWindSpeed
 // test list will be the very similar for each function
