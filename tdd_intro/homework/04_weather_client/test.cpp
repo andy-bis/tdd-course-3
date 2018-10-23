@@ -102,3 +102,9 @@ TEST(ParseWeather, Correct)
     Weather expected = {20, 181, 5.1};
     EXPECT_EQ(expected, ParseWeather("20;181;5.1"));
 }
+
+TEST(ParseWeather, AnotherCorrect)
+{
+    Weather expected = {34, 258, 3.7};
+    EXPECT_EQ(expected, ParseWeather("34;258;3.7"));
+}
