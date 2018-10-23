@@ -225,14 +225,14 @@ TEST(GetWeathersByDate, IncorrectDateInput)
 // template numberic values
 
 template <class T>
-float GetAverage(const std::vector<Weather>& weathers, T Weather::*member)
+double GetAverage(const std::vector<Weather>& weathers, T Weather::*member)
 {
     if (weathers.empty())
     {
         return 0;
     }
 
-    float sum = 0;
+    double sum = 0;
 
     for (const Weather& weather : weathers)
     {
@@ -262,7 +262,7 @@ T GetMinimum(const std::vector<Weather>& weathers, T Weather::*member)
 TEST(GetAverage, WeatherWindDirection_EmptyList)
 {
     std::vector<Weather> weathers = {};
-    EXPECT_FLOAT_EQ(GetAverage(weathers, &Weather::windDirection), 0);
+    EXPECT_DOUBLE_EQ(GetAverage(weathers, &Weather::windDirection), 0);
 }
 
 TEST(GetAverage, WeatherWindDirection_Correct4Values)
@@ -274,7 +274,7 @@ TEST(GetAverage, WeatherWindDirection_Correct4Values)
         Weather{27, 299, 4.0}
     };
 
-    EXPECT_FLOAT_EQ(GetAverage(weathers, &Weather::windDirection), 229);
+    EXPECT_DOUBLE_EQ(GetAverage(weathers, &Weather::windDirection), 229);
 }
 
 TEST(GetMinimum, WeatherTemperature_EmptyList)
