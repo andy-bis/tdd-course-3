@@ -269,7 +269,7 @@ TEST(GetAverage, WeatherWindDirection_Correct4Values)
 TEST(GetMinimum, WeatherTemperature_EmptyList)
 {
     std::vector<Weather> weathers = {};
-    EXPECT_FLOAT_EQ(GetMinimum(weathers, &Weather::temperature), 0);
+    EXPECT_EQ(GetMinimum(weathers, &Weather::temperature), 0);
 }
 
 // --------------------------------------------------
