@@ -242,6 +242,12 @@ float GetAverage(const std::vector<Weather>& weathers, T Weather::*member)
     return sum / weathers.size();
 }
 
+template <class T>
+T GetMinimum(const std::vector<Weather>& weathers, T Weather::*member)
+{
+    return 1;
+}
+
 TEST(GetAverage, WeatherWindDirection_EmptyList)
 {
     std::vector<Weather> weathers = {};
