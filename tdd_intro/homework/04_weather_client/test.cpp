@@ -192,3 +192,10 @@ TEST(GetWeathersByDate, AnotherCorrectDate)
     ));
 }
 
+TEST(GetWeathersByDate, IncorrectDate)
+{
+    FakeWeatherServer server;
+    EXPECT_CALL(server, GetWeather("32.08.2018;03:00")).WillOnce(Return(""));
+
+    EXPECT_THROW(GetWeathersByDate(server, "32.08.2018"), std::invalid_argument);
+}
