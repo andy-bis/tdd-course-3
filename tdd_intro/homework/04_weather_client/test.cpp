@@ -91,3 +91,9 @@ public:
 // correct weather
 // empty string
 // will not be covered/implemented: invalid temperature (< -273), invalid wind direction (>359), invalid wind speed (<0)
+
+TEST(ParseWeather, Correct)
+{
+    Weather expected = {20, 181, 5.1};
+    EXPECT_EQ(expected, ParseWeather("20;181;5.1"))
+}
