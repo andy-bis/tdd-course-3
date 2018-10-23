@@ -270,19 +270,7 @@ TEST(GetAverage, WeatherWindDirection_Correct4Values)
 
 float GetAverageTemperature(const std::vector<Weather>& weathers)
 {
-    if (weathers.empty())
-    {
-        return 0;
-    }
-
-    float sum = 0;
-
-    for (const Weather& weather : weathers)
-    {
-        sum += weather.temperature;
-    }
-
-    return sum / weathers.size();
+    return GetAverage(weathers, &Weather::temperature);
 }
 
 TEST(GetAverageTemperature, EmptyList)
