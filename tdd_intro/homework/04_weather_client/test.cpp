@@ -174,3 +174,20 @@ TEST(GetWeathersByDate, CorrectDate)
         Weather{26, 179, 4.5}
     ));
 }
+
+TEST(GetWeathersByDate, AnotherCorrectDate)
+{
+    FakeWeatherServer server;
+    EXPECT_CALL(server, GetWeather("02.09.2018;03:00")).WillOnce(Return("21;158;3.8"));
+    EXPECT_CALL(server, GetWeather("02.09.2018;09:00")).WillOnce(Return("25;201;3.5"));
+    EXPECT_CALL(server, GetWeather("02.09.2018;15:00")).WillOnce(Return("34;258;3.7"));
+    EXPECT_CALL(server, GetWeather("02.09.2018;21:00")).WillOnce(Return("27;299;4.0"));
+
+    ASSERT_THAT(GetWeathersByDate(server, "02.09.2018"), ElementsAre(
+        Weather{21, 158, 3.8},
+        Weather{25, 201, 3.5},
+        Weather{34, 258, 3.7},
+        Weather{27, 299, 4.0}
+    ));
+}
+
