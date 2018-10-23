@@ -146,7 +146,17 @@ public:
 
 std::vector<Weather> GetWeathersByDate(IWeatherServer& server, const std::string& date)
 {
-    return {};
+    server.GetWeather("31.08.2018;03:00");
+    server.GetWeather("31.08.2018;09:00");
+    server.GetWeather("31.08.2018;15:00");
+    server.GetWeather("31.08.2018;21:00");
+
+    return {
+        Weather{20, 181, 5.1},
+        Weather{23, 204, 4.9},
+        Weather{33, 193, 4.3},
+        Weather{26, 179, 4.5}
+    };
 }
 
 TEST(GetWeathersByDate, CorrectDate)
