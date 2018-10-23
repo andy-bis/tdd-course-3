@@ -85,6 +85,7 @@ public:
 // steps to implement
 // ParseWeather - from string to struct
 // GetWeathersByDate - from server to weather list
+// GetAverage, GetMinimum, GetMaximum - from template list of structs to value
 // GetAverageTemperature, GetMinimumTemperature, GetMaximumTemperature, GetAverageWindDirection, GetMaximumWindSpeed - from weather list to value
 // WeatherClient - combining utilities to get results
 
