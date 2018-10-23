@@ -223,7 +223,19 @@ TEST(GetWeathersByDate, IncorrectDateInput)
 
 float GetAverageTemperature(const std::vector<Weather>& weathers)
 {
-    return weathers.empty() ? 0 : 26.75;
+    if (weathers.empty())
+    {
+        return 0;
+    }
+
+    float sum = 0;
+
+    for (const Weather& weather : weathers)
+    {
+        sum += weather.temperature;
+    }
+
+    return sum / weathers.size();
 }
 
 TEST(GetAverageTemperature, EmptyList)
