@@ -245,12 +245,13 @@ float GetAverage(const std::vector<Weather>& weathers, T Weather::*member)
 template <class T>
 T GetMinimum(const std::vector<Weather>& weathers, T Weather::*member)
 {
-    if (!weathers.empty())
+    T minimum = 0;
+    for (const Weather& weather : weathers)
     {
-        return -5;
+        minimum = std::min(minimum, weather.*member);
     }
 
-    return 0;
+    return minimum;
 }
 
 TEST(GetAverage, WeatherWindDirection_EmptyList)
