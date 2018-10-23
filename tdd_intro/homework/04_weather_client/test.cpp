@@ -236,6 +236,18 @@ TEST(GetAverage, WeatherWindDirection_EmptyList)
     EXPECT_FLOAT_EQ(GetAverage(weathers, &Weather::windDirection), 0);
 }
 
+TEST(GetAverage, WeatherWindDirection_Correct4Values)
+{
+    std::vector<Weather> weathers = {
+        Weather{21, 158, 3.8},
+        Weather{25, 201, 3.5},
+        Weather{34, 258, 3.7},
+        Weather{27, 299, 4.0}
+    };
+
+    EXPECT_FLOAT_EQ(GetAverage(weathers, &Weather::windDirection), 229);
+}
+
 // --------------------------------------------------
 // GetAverageTemperature, GetMinimumTemperature, GetMaximumTemperature, GetAverageWindDirection, GetMaximumWindSpeed
 // test list will be the very similar for each function
