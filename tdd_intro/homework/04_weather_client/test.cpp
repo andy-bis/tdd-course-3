@@ -141,6 +141,7 @@ public:
 // GetWeathersByDate tests
 // correct date
 // incorrect date
+// incorect date input
 // will not be covered/implemented:
 // server internal error
 
