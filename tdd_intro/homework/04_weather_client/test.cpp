@@ -128,3 +128,9 @@ TEST(ParseWeather, EmptyString)
     EXPECT_THROW(ParseWeather(""), std::invalid_argument);
 }
 
+// --------------------------------------------------
+// GetWeathersByDate tests
+// correct date
+// incorrect date
+// will not be covered/implemented:
+// server internal error
