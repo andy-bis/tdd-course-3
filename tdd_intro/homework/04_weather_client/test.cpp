@@ -90,7 +90,9 @@ public:
 // ParseWeather tests
 // correct weather
 // empty string
-// will not be covered/implemented: invalid temperature (< -273), invalid wind direction (>359), invalid wind speed (<0)
+// will not be covered/implemented:
+// invalid temperature (< -273), invalid wind direction (>359), invalid wind speed (<0)
+// any other invalid input: several whitespaces, invalid semicolons, not enough numbers etc
 
 Weather ParseWeather(const std::string& value)
 {
