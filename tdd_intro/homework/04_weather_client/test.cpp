@@ -227,7 +227,7 @@ TEST(GetWeathersByDate, IncorrectDateInput)
 template <class T>
 float GetAverage(const std::vector<Weather>& weathers, T Weather::*member)
 {
-    return 1;
+    return 0;
 }
 
 TEST(GetAverage, WeatherTemperature_EmptyList)
