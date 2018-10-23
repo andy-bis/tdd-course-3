@@ -146,29 +146,17 @@ public:
 
 std::vector<Weather> GetWeathersByDate(IWeatherServer& server, const std::string& date)
 {
+    std::vector<Weather> weathers;
+
     static const char* times[] = {"03:00", "09:00", "15:00", "21:00"};
     for (const char* time : times)
     {
         std::string request = date + ";" + time;
-        server.GetWeather(request);
+        std::string response = server.GetWeather(request);
+        weathers.push_back(ParseWeather(response));
     }
 
-    if (date == "02.09.2018")
-    {
-        return {
-            Weather{21, 158, 3.8},
-            Weather{25, 201, 3.5},
-            Weather{34, 258, 3.7},
-            Weather{27, 299, 4.0}
-        };
-    }
-
-    return {
-        Weather{20, 181, 5.1},
-        Weather{23, 204, 4.9},
-        Weather{33, 193, 4.3},
-        Weather{26, 179, 4.5}
-    };
+    return weathers;
 }
 
 TEST(GetWeathersByDate, CorrectDate)
