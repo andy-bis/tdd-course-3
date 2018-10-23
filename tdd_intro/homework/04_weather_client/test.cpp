@@ -94,7 +94,14 @@ public:
 
 Weather ParseWeather(const std::string& value)
 {
-    return {20, 181, 5.1};
+    Weather weather = {};
+    std::istringstream stream(value);
+    stream >> weather.temperature;
+    stream.ignore();
+    stream >> weather.windDirection;
+    stream.ignore();
+    stream >> weather.windSpeed;
+    return weather;
 }
 
 TEST(ParseWeather, Correct)
