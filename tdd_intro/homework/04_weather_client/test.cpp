@@ -352,3 +352,22 @@ TEST(GetMaximum, WeatherTemperature_Correct4ValuesLessThan0)
 
     EXPECT_EQ(GetMaximum(weathers, &Weather::temperature), -1);
 }
+
+// --------------------------------------------------
+// WeatherClient tests
+// for each function GetAverageTemperature, GetMinimumTemperature, GetMaximumTemperature, GetAverageWindDirection, GetMaximumWindSpeed
+// 1 acceptance test with correct date
+// will not be covered:
+// incorrect date or input
+
+TEST(WeatherClient, GetAverageTemperature_CorrectDate)
+{
+    FakeWeatherServer server;
+    EXPECT_CALL(server, GetWeather("31.08.2018;03:00")).WillOnce(Return("20;181;5.1"));
+    EXPECT_CALL(server, GetWeather("31.08.2018;09:00")).WillOnce(Return("23;204;4.9"));
+    EXPECT_CALL(server, GetWeather("31.08.2018;15:00")).WillOnce(Return("33;193;4.3"));
+    EXPECT_CALL(server, GetWeather("31.08.2018;21:00")).WillOnce(Return("26;179;4.5"));
+
+    WeatherClient client;
+    EXPECT_DOUBLE_EQ(client.GetAverageTemperature(server, "31.08.2018"), 25.5);
+}
