@@ -360,6 +360,35 @@ TEST(GetMaximum, WeatherTemperature_Correct4ValuesLessThan0)
 // will not be covered:
 // incorrect date or input
 
+class WeatherClient : public IWeatherClient
+{
+public:
+    virtual double GetAverageTemperature(IWeatherServer& server, const std::string& date) override
+    {
+        return 0;
+    }
+
+    virtual double GetMinimumTemperature(IWeatherServer& server, const std::string& date) override
+    {
+        return 0;
+    }
+
+    virtual double GetMaximumTemperature(IWeatherServer& server, const std::string& date) override
+    {
+        return 0;
+    }
+
+    virtual double GetAverageWindDirection(IWeatherServer& server, const std::string& date) override
+    {
+        return 0;
+    }
+
+    virtual double GetMaximumWindSpeed(IWeatherServer& server, const std::string& date) override
+    {
+        return 0;
+    }
+};
+
 TEST(WeatherClient, GetAverageTemperature_CorrectDate)
 {
     FakeWeatherServer server;
