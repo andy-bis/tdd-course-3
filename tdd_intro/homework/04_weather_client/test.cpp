@@ -365,7 +365,12 @@ class WeatherClient : public IWeatherClient
 public:
     virtual double GetAverageTemperature(IWeatherServer& server, const std::string& date) override
     {
-        return 0;
+        server.GetWeather("31.08.2018;03:00");
+        server.GetWeather("31.08.2018;09:00");
+        server.GetWeather("31.08.2018;15:00");
+        server.GetWeather("31.08.2018;21:00");
+
+        return 25.5;
     }
 
     virtual double GetMinimumTemperature(IWeatherServer& server, const std::string& date) override
