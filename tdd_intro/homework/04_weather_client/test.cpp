@@ -262,7 +262,7 @@ T GetMinimum(const std::vector<Weather>& weathers, T Weather::*member)
 template <class T>
 T GetMaximum(const std::vector<Weather>& weathers, T Weather::*member)
 {
-    return 1;
+    return 0;
 }
 
 TEST(GetAverage, WeatherWindDirection_EmptyList)
