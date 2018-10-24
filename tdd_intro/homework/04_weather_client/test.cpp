@@ -342,6 +342,18 @@ TEST(GetMaximum, WeatherTemperature_Correct4Values)
     EXPECT_EQ(GetMaximum(weathers, &Weather::temperature), 20);
 }
 
+TEST(GetMaximum, WeatherTemperature_Correct4ValuesLessThan0)
+{
+    std::vector<Weather> weathers = {
+        Weather{-4, 181, 5.1},
+        Weather{-2, 204, 4.9},
+        Weather{-1, 193, 4.3},
+        Weather{-3, 179, 4.5}
+    };
+
+    EXPECT_EQ(GetMaximum(weathers, &Weather::temperature), -1);
+}
+
 // --------------------------------------------------
 // GetAverageTemperature, GetMinimumTemperature, GetMaximumTemperature, GetAverageWindDirection, GetMaximumWindSpeed
 // test list will be the very similar for each function
