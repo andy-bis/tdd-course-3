@@ -371,7 +371,8 @@ public:
 
     virtual double GetMinimumTemperature(IWeatherServer& server, const std::string& date) override
     {
-        return 0;
+        std::vector<Weather> weathers = GetWeathersByDate(server, date);
+        return GetMinimum(weathers, &Weather::temperature);
     }
 
     virtual double GetMaximumTemperature(IWeatherServer& server, const std::string& date) override
