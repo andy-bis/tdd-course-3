@@ -389,7 +389,8 @@ public:
 
     virtual double GetMaximumWindSpeed(IWeatherServer& server, const std::string& date) override
     {
-        return 0;
+        std::vector<Weather> weathers = GetWeathersByDate(server, date);
+        return GetMaximum(weathers, &Weather::windSpeed);
     }
 };
 
