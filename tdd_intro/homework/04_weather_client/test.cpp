@@ -440,3 +440,15 @@ TEST(WeatherClient, GetAverageWindDirection_CorrectDate)
     WeatherClient client;
     EXPECT_DOUBLE_EQ(client.GetAverageWindDirection(server, "31.08.2018"), 189.25);
 }
+
+TEST(WeatherClient, GetMaximumWindSpeed_CorrectDate)
+{
+    FakeWeatherServer server;
+    EXPECT_CALL(server, GetWeather("01.09.2018;03:00")).WillOnce(Return("19;176;4.2"));
+    EXPECT_CALL(server, GetWeather("01.09.2018;09:00")).WillOnce(Return("22;131;4.1"));
+    EXPECT_CALL(server, GetWeather("01.09.2018;15:00")).WillOnce(Return("31;109;4.0"));
+    EXPECT_CALL(server, GetWeather("01.09.2018;21:00")).WillOnce(Return("24;127;4.1"));
+
+    WeatherClient client;
+    EXPECT_DOUBLE_EQ(client.GetMaximumWindSpeed(server, "01.09.2018"), 4.2);
+}
