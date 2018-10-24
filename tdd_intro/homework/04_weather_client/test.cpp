@@ -383,7 +383,8 @@ public:
 
     virtual double GetAverageWindDirection(IWeatherServer& server, const std::string& date) override
     {
-        return 0;
+        std::vector<Weather> weathers = GetWeathersByDate(server, date);
+        return GetAverage(weathers, &Weather::windDirection);
     }
 
     virtual double GetMaximumWindSpeed(IWeatherServer& server, const std::string& date) override
