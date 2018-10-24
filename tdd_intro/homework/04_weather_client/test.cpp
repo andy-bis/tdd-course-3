@@ -86,7 +86,6 @@ public:
 // ParseWeather - from string to struct
 // GetWeathersByDate - from server to weather list
 // GetAverage, GetMinimum, GetMaximum - from template list of structs to value
-// GetAverageTemperature, GetMinimumTemperature, GetMaximumTemperature, GetAverageWindDirection, GetMaximumWindSpeed - from weather list to value
 // WeatherClient - combining utilities to get results
 
 // --------------------------------------------------
@@ -352,34 +351,4 @@ TEST(GetMaximum, WeatherTemperature_Correct4ValuesLessThan0)
     };
 
     EXPECT_EQ(GetMaximum(weathers, &Weather::temperature), -1);
-}
-
-// --------------------------------------------------
-// GetAverageTemperature, GetMinimumTemperature, GetMaximumTemperature, GetAverageWindDirection, GetMaximumWindSpeed
-// test list will be the very similar for each function
-// 4 correct Weather values in list
-// will not be covered/implemented:
-// everything that mentioned in GetAverage/Minimum/Maximum tests
-// input validation like invalid temperature (< -273), invalid wind direction (>359), invalid wind speed (<0)
-
-float GetAverageTemperature(const std::vector<Weather>& weathers)
-{
-    return GetAverage(weathers, &Weather::temperature);
-}
-
-TEST(GetAverageTemperature, EmptyList)
-{
-    EXPECT_FLOAT_EQ(GetAverageTemperature({}), 0);
-}
-
-TEST(GetAverageTemperature, Correct4Values)
-{
-    std::vector<Weather> weathers = {
-        Weather{21, 158, 3.8},
-        Weather{25, 201, 3.5},
-        Weather{34, 258, 3.7},
-        Weather{27, 299, 4.0}
-    };
-
-    EXPECT_FLOAT_EQ(GetAverageTemperature(weathers), 26.75);
 }
