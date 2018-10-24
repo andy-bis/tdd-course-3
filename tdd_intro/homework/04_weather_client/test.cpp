@@ -401,3 +401,15 @@ TEST(WeatherClient, GetAverageTemperature_CorrectDate)
     WeatherClient client;
     EXPECT_DOUBLE_EQ(client.GetAverageTemperature(server, "31.08.2018"), 25.5);
 }
+
+TEST(WeatherClient, GetMinimumTemperature_CorrectDate)
+{
+    FakeWeatherServer server;
+    EXPECT_CALL(server, GetWeather("01.09.2018;03:00")).WillOnce(Return("19;176;4.2"));
+    EXPECT_CALL(server, GetWeather("01.09.2018;09:00")).WillOnce(Return("22;131;4.1"));
+    EXPECT_CALL(server, GetWeather("01.09.2018;15:00")).WillOnce(Return("31;109;4.0"));
+    EXPECT_CALL(server, GetWeather("01.09.2018;21:00")).WillOnce(Return("24;127;4.1"));
+
+    WeatherClient client;
+    EXPECT_DOUBLE_EQ(client.GetMinimumTemperature(server, "01.09.2018"), 19);
+}
