@@ -178,7 +178,7 @@ TEST(WrapString, SeveralWordsInOnlyOneString)
     ASSERT_EQ(expected, WrapString("123 567 9", 10));
 }
 
-/*TEST(WrapString, Acceptance)
+TEST(WrapString, Acceptance)
 {
     WrappedStrings expected = {
         "When pos is specified, the",
@@ -191,4 +191,4 @@ TEST(WrapString, SeveralWordsInOnlyOneString)
 
     std::string data = "When pos is specified, the search only includes sequences of characters that begin at or before position pos, ignoring any possible match beginning after pos.";
     ASSERT_EQ(expected, WrapString(data, 30));
-}*/
+}
