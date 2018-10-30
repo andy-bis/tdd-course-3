@@ -48,11 +48,6 @@ WrappedStrings WrapString(const std::string& str, size_t wrapLength)
             cur.pop_back();
         }
 
-        while (!cur.empty() && cur.front() == ' ')
-        {
-            cur = cur.substr(1);
-        }
-
         if (!cur.empty())
         {
             result.push_back(cur);
