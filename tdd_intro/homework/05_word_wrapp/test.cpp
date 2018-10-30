@@ -121,3 +121,10 @@ TEST(WrapString, OnlyWhitespace)
     ASSERT_EQ(expected, WrapString("          ", 3));
 }
 
+TEST(WrapString, LongSequences)
+{
+    WrappedStrings expected = {"123", "4", "123", "45"};
+    ASSERT_EQ(expected, WrapString("1234     12345", 3));
+}
+
+
