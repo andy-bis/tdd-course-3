@@ -29,6 +29,7 @@ ignoring any possible match beginning after pos
 // only whitespaces in string
 // long whitespace, long word, long whitespace
 // 1 space word + wrapLength word
+// several words in one string
 
 using WrappedStrings = std::vector<std::string>;
 
@@ -126,4 +127,10 @@ TEST(WrapString, SpaceAndWrapLengthWord)
 {
     WrappedStrings expected = {"123"};
     ASSERT_EQ(expected, WrapString(" 123", 3));
+}
+
+TEST(WrapString, SeveralWordsInOneString)
+{
+    WrappedStrings expected = {"123 567 9", "abc"};
+    ASSERT_EQ(expected, WrapString("123 567 9  abc", 10));
 }
