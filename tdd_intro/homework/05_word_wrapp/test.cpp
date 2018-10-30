@@ -35,13 +35,8 @@ using WrappedStrings = std::vector<std::string>;
 WrappedStrings WrapString(const std::string& str, size_t wrapLength)
 {
     WrappedStrings result;
-    for (size_t i = 0; i < str.length(); i += wrapLength)
+    for (size_t i = str.find_first_not_of(' '); i < str.length(); i = str.find_first_not_of(' ', i + wrapLength))
     {
-        while (i < str.length() && str[i] == ' ')
-        {
-            ++i;
-        }
-
         std::string cur = str.substr(i, wrapLength);
         while (!cur.empty() && cur.back() == ' ')
         {
