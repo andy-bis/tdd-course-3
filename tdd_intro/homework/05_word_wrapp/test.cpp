@@ -36,6 +36,11 @@ using WrappedStrings = std::vector<std::string>;
 
 size_t GetLineLength(const std::string& str, size_t position, size_t maxLength)
 {
+    if (str.length() - position < maxLength)
+    {
+        return maxLength;
+    }
+
     size_t startPosition = position;
     size_t lineLength = maxLength;
     for (;;)
