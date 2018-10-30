@@ -23,10 +23,10 @@ ignoring any possible match beginning after pos
 // word longer than wrap number
 // word much longer than wrap number (more than 2 strings)
 // string longer than wrap number
-
 // wrapLength word + 1 space
 // string wrapped by several whitespaces (less than wrapLength)
 // string wrapped by several whitespaces (more than wrapLength)
+
 // only whitespaces in string
 // long whitespace, long word, long whitespace
 
@@ -113,5 +113,11 @@ TEST(WrapString, SeveralEndWhitespaces)
 {
     WrappedStrings expected = {"12", "34"};
     ASSERT_EQ(expected, WrapString("12    34", 5));
+}
+
+TEST(WrapString, OnlyWhitespace)
+{
+    WrappedStrings expected;
+    ASSERT_EQ(expected, WrapString("          ", 3));
 }
 
