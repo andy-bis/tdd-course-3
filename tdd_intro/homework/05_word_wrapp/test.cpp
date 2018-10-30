@@ -46,27 +46,27 @@ WrappedStrings WrapString(const std::string& str, size_t wrapLength)
             break;
         }
 
-        std::string cur = str.substr(i, wrapLength);
-        size_t lastSpace = cur.find_last_of(' ');
-        if (lastSpace != std::string::npos)
+        size_t lineLength = wrapLength;
+        for (size_t position= i;;)
         {
-            cur = cur.substr(0, lastSpace);
-            i += lastSpace;
-        }
-        else
-        {
-            i += wrapLength;
+            size_t nextSpace = str.find_first_of(' ', position);
+            if (nextSpace == std::string::npos)
+            {
+                break;
+            }
+
+            size_t newLineLength = nextSpace - i;
+            if (newLineLength > wrapLength)
+            {
+                break;
+            }
+
+            lineLength = newLineLength;
+            position = str.find_first_not_of(' ', nextSpace);
         }
 
-        while (!cur.empty() && cur.back() == ' ')
-        {
-            cur.pop_back();
-        }
-
-        if (!cur.empty())
-        {
-            result.push_back(cur);
-        }
+        result.push_back(str.substr(i, lineLength));
+        i += lineLength;
     }
 
     return result;
