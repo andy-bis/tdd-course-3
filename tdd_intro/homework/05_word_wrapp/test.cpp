@@ -24,9 +24,11 @@ ignoring any possible match beginning after pos
 // word much longer than wrap number (more than 2 strings)
 // string longer than wrap number
 
+// wrapLength word + 1 space
 // string wrapped by several whitespaces (less than wrapLength)
 // string wrapped by several whitespaces (more than wrapLength)
 // only whitespaces in string
+// long whitespace, long word, long whitespace
 
 using WrappedStrings = std::vector<std::string>;
 
