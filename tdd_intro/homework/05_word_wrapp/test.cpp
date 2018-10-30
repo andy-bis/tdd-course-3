@@ -37,18 +37,25 @@ using WrappedStrings = std::vector<std::string>;
 WrappedStrings WrapString(const std::string& str, size_t wrapLength)
 {
     WrappedStrings result;
-    for (size_t i = str.find_first_not_of(' '); i < str.length();)
+
+    for (size_t i = 0;;)
     {
+        i = str.find_first_not_of(' ', i);
+        if (i == std::string::npos)
+        {
+            break;
+        }
+
         std::string cur = str.substr(i, wrapLength);
         size_t lastSpace = cur.find_last_of(' ');
         if (lastSpace != std::string::npos)
         {
             cur = cur.substr(0, lastSpace);
-            i = str.find_first_not_of(' ', i + lastSpace);
+            i += lastSpace;
         }
         else
         {
-            i = str.find_first_not_of(' ', i + wrapLength);
+            i += wrapLength;
         }
 
         while (!cur.empty() && cur.back() == ' ')
