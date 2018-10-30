@@ -108,3 +108,10 @@ TEST(WrapString, StringWrappedBySeveralWhitespaceLong)
     WrappedStrings expected = {"12", "34"};
     ASSERT_EQ(expected, WrapString("12    34", 3));
 }
+
+TEST(WrapString, SeveralEndWhitespaces)
+{
+    WrappedStrings expected = {"12", "34"};
+    ASSERT_EQ(expected, WrapString("12    34", 5));
+}
+
