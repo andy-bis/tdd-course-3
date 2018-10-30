@@ -34,6 +34,31 @@ ignoring any possible match beginning after pos
 
 using WrappedStrings = std::vector<std::string>;
 
+size_t GetLineLength(const std::string& str, size_t position, size_t maxLength)
+{
+    size_t startPosition = position;
+    size_t lineLength = maxLength;
+    for (;;)
+    {
+        size_t nextSpace = str.find_first_of(' ', position);
+        if (nextSpace == std::string::npos)
+        {
+            break;
+        }
+
+        size_t newLineLength = nextSpace - startPosition;
+        if (newLineLength > maxLength)
+        {
+            break;
+        }
+
+        lineLength = newLineLength;
+        position = str.find_first_not_of(' ', nextSpace);
+    }
+
+    return lineLength;
+}
+
 WrappedStrings WrapString(const std::string& str, size_t wrapLength)
 {
     WrappedStrings result;
@@ -46,25 +71,7 @@ WrappedStrings WrapString(const std::string& str, size_t wrapLength)
             break;
         }
 
-        size_t lineLength = wrapLength;
-        for (size_t position= i;;)
-        {
-            size_t nextSpace = str.find_first_of(' ', position);
-            if (nextSpace == std::string::npos)
-            {
-                break;
-            }
-
-            size_t newLineLength = nextSpace - i;
-            if (newLineLength > wrapLength)
-            {
-                break;
-            }
-
-            lineLength = newLineLength;
-            position = str.find_first_not_of(' ', nextSpace);
-        }
-
+        size_t lineLength = GetLineLength(str, i, wrapLength);
         result.push_back(str.substr(i, lineLength));
         i += lineLength;
     }
