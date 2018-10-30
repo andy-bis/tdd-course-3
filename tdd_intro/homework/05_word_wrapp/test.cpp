@@ -34,14 +34,14 @@ using WrappedStrings = std::vector<std::string>;
 
 WrappedStrings WrapString(const std::string& str, size_t wrapLength)
 {
-    if (str == " 123" && wrapLength == 3)
-    {
-        return {"123"};
-    }
-
     WrappedStrings result;
     for (size_t i = 0; i < str.length(); i += wrapLength)
     {
+        while (i < str.length() && str[i] == ' ')
+        {
+            ++i;
+        }
+
         std::string cur = str.substr(i, wrapLength);
         while (!cur.empty() && cur.back() == ' ')
         {
