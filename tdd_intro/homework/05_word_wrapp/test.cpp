@@ -30,6 +30,7 @@ ignoring any possible match beginning after pos
 // long whitespace, long word, long whitespace
 // 1 space word + wrapLength word
 // several words in one string
+// word on line boundary
 
 using WrappedStrings = std::vector<std::string>;
 
@@ -133,4 +134,10 @@ TEST(WrapString, SeveralWordsInOneString)
 {
     WrappedStrings expected = {"123 567 9", "abc"};
     ASSERT_EQ(expected, WrapString("123 567 9  abc", 10));
+}
+
+TEST(WrapString, WordOnLineBoundary)
+{
+    WrappedStrings expected = {"123", "567"};
+    ASSERT_EQ(expected, WrapString("123 567", 5));
 }
