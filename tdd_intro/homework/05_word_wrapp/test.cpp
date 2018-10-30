@@ -26,16 +26,16 @@ ignoring any possible match beginning after pos
 // wrapLength word + 1 space
 // string wrapped by several whitespaces (less than wrapLength)
 // string wrapped by several whitespaces (more than wrapLength)
-
 // only whitespaces in string
 // long whitespace, long word, long whitespace
+// 1 space word + wrapLength word
 
 using WrappedStrings = std::vector<std::string>;
 
 WrappedStrings WrapString(const std::string& str, size_t wrapLength)
 {
     WrappedStrings result;
-    for(size_t i = 0; i < str.length(); i += wrapLength)
+    for (size_t i = 0; i < str.length(); i += wrapLength)
     {
         std::string cur = str.substr(i, wrapLength);
         while (!cur.empty() && cur.back() == ' ')
@@ -127,4 +127,8 @@ TEST(WrapString, LongSequences)
     ASSERT_EQ(expected, WrapString("1234     12345", 3));
 }
 
-
+TEST(WrapString, SpaceAndWrapLengthWord)
+{
+    WrappedStrings expected = {"123"};
+    ASSERT_EQ(expected, WrapString(" 123", 3));
+}
