@@ -166,3 +166,18 @@ TEST(WrapString, WordOnLineBoundary)
     WrappedStrings expected = {"123", "567"};
     ASSERT_EQ(expected, WrapString("123 567", 5));
 }
+
+TEST(WrapString, Acceptance)
+{
+    WrappedStrings expected = {
+        "When pos is specified, the",
+        "search only includes sequences",
+        "of characters that begin at or",
+        "before position pos, ignoring",
+        "any possible match beginning",
+        "after pos."
+    };
+
+    std::string data = "When pos is specified, the search only includes sequences of characters that begin at or before position pos, ignoring any possible match beginning after pos.";
+    ASSERT_EQ(expected, WrapString(data, 30));
+}
