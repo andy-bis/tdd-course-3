@@ -2,10 +2,10 @@
 We have to develop a coffee machine with TDD. The machine uses the automated source of ingredients, which implements the interface ISourceOfIngredients.
 
 Our machine should be able to produce the coffee accordingly to the next receipts:
-- americano: water & coffee 1:2 or 1:3. Water temp 60C
-- cappuccino - milk & coffee & milk foam 1:3, 1:3, 1:3. Water temp 80C
-- latte - milk & coffee & milk foam 1:4, 1:2, 1:4. Water temp 90C
-- marochino - chocolate & coffee & milk foam, 1:4, 1:4, 1:4 and 1:4 is empty
+- americano: water & coffee 1/2 or 1/3. Water temp 60C
+- cappuccino - milk & coffee & milk foam 1/3, 1/3, 1/3. Water temp 80C
+- latte - milk & coffee & milk foam 1/4, 1/2, 1/4. Water temp 90C
+- marochino - chocolate & coffee & milk foam, 1/4, 1/4, 1/4 and 1/4 is empty
 
 We have 2 possible sizes of the cup:
 - little 100 gram
@@ -78,8 +78,6 @@ private:
 // Class CoffeMachine
 // Class-Mock SourceOfIngredients
 
-// - americano: water & coffee 1:2 or 1:3. Water temp 60C
-
 // Tests list:
 // 1. americano + 100 gram = 1 coffe
 // 2. americano + 140 gram = 1 large coffee
@@ -105,7 +103,7 @@ TEST(CoffeeMachine, CallsImportantThings)
     cm.CreateCoffee(Cup::Normal, Coffee::Americano);
 }
 
-//- americano: water & coffee 1:3 Water temp 60C
+//- americano: water & coffee 1/3 Water temp 60C
 TEST(CoffeeMachine, Americano)
 {
     MockSourceOfIngredients si;
