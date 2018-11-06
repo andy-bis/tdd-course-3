@@ -105,9 +105,9 @@ private:
 
     void MakeLatte(int gram)
     {
-        m_source.AddCoffee(50);
-        m_source.AddMilk(25);
-        m_source.AddMilkFoam(25);
+        m_source.AddCoffee(gram / 2);
+        m_source.AddMilk(gram / 4);
+        m_source.AddMilkFoam(gram / 4);
     }
 
 private:
