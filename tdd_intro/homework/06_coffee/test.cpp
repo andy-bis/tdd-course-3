@@ -127,9 +127,9 @@ private:
 
     void MakeMarochino(int gram)
     {
-        m_source.AddChocolate(25);
-        m_source.AddCoffee(25);
-        m_source.AddMilkFoam(25);
+        m_source.AddChocolate(gram / 4);
+        m_source.AddCoffee(gram / 4);
+        m_source.AddMilkFoam(gram / 4);
     }
 
 private:
