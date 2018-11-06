@@ -69,6 +69,15 @@ public:
 
     void CreateCoffee(const Cup cup, const Coffee coffee)
     {
+        if (coffee == Coffee::Cappuccino && cup == Cup::Big)
+        {
+            m_source.SetCupSize(140);
+            m_source.AddMilk(46);
+            m_source.AddCoffee(47);
+            m_source.AddMilkFoam(47);
+            return;
+        }
+
         if (coffee == Americano)
         {
             int gram = cup == Cup::Big ? 140 : 100;
