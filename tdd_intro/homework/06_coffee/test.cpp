@@ -69,24 +69,15 @@ public:
 
     void CreateCoffee(const Cup cup, const Coffee coffee)
     {
-        if (coffee == Coffee::Cappuccino && cup == Cup::Big)
-        {
-            m_source.SetCupSize(140);
-            m_source.AddMilk(46);
-            m_source.AddCoffee(47);
-            m_source.AddMilkFoam(47);
-            return;
-        }
-
+        int gram = cup == Cup::Big ? 140 : 100;
+        m_source.SetCupSize(gram);
         if (coffee == Americano)
         {
-            int gram = cup == Cup::Big ? 140 : 100;
-            m_source.SetCupSize(gram);
             MakeAmericano(gram);
         }
         else
         {
-            MakeCappuccino();
+            MakeCappuccino(gram);
         }
     }
 
@@ -97,12 +88,14 @@ private:
         m_source.AddWater(gram / 2, 60);
     }
 
-    void MakeCappuccino()
+    void MakeCappuccino(int gram)
     {
-        m_source.SetCupSize(100);
-        m_source.AddCoffee(33);
-        m_source.AddMilk(33);
-        m_source.AddMilkFoam(34);
+        int milk = gram / 3;
+        int coffeeMilk = 2 * gram / 3;
+
+        m_source.AddCoffee(coffeeMilk - milk);
+        m_source.AddMilk(milk);
+        m_source.AddMilkFoam(gram - coffeeMilk);
     }
 
 private:
