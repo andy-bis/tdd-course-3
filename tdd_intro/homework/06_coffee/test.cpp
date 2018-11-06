@@ -17,6 +17,8 @@ Implement worked coffee machine using ISourceOfIngredients to controll the proce
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
+using namespace testing;
+
 class ISourceOfIngredients
 {
 public:
@@ -96,7 +98,7 @@ private:
 
 TEST(CoffeeMachine, NormalAmericano)
 {
-    MockSourceOfIngredients si;
+    StrictMock<MockSourceOfIngredients> si;
     CoffeeMachine cm(si);
 
     EXPECT_CALL(si, AddCoffee(50));
@@ -108,7 +110,7 @@ TEST(CoffeeMachine, NormalAmericano)
 
 TEST(CoffeeMachine, BigAmericano)
 {
-    MockSourceOfIngredients si;
+    StrictMock<MockSourceOfIngredients> si;
     CoffeeMachine cm(si);
 
     EXPECT_CALL(si, AddCoffee(70));
