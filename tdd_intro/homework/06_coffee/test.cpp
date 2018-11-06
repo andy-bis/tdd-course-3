@@ -43,7 +43,8 @@ enum Cup
 enum Coffee
 {
     Americano,
-    Cappuccino
+    Cappuccino,
+    Latte
 };
 
 class MockSourceOfIngredients : public ISourceOfIngredients
@@ -75,9 +76,13 @@ public:
         {
             MakeAmericano(gram);
         }
-        else
+        else if (coffee == Cappuccino)
         {
             MakeCappuccino(gram);
+        }
+        else
+        {
+            MakeLatte(gram);
         }
     }
 
@@ -96,6 +101,13 @@ private:
         m_source.AddCoffee(coffeeMilk - milk);
         m_source.AddMilk(milk);
         m_source.AddMilkFoam(gram - coffeeMilk);
+    }
+
+    void MakeLatte(int gram)
+    {
+        m_source.AddCoffee(50);
+        m_source.AddMilk(25);
+        m_source.AddMilkFoam(25);
     }
 
 private:
