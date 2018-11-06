@@ -72,21 +72,31 @@ public:
     {
         int gram = cup == Cup::Big ? 140 : 100;
         m_source.SetCupSize(gram);
-        if (coffee == Americano)
-        {
-            MakeAmericano(gram);
-        }
-        else if (coffee == Cappuccino)
-        {
-            MakeCappuccino(gram);
-        }
-        else
-        {
-            MakeLatte(gram);
-        }
+
+        Maker make = GetMaker(coffee);
+        (this->*make)(gram);
     }
 
 private:
+    typedef void (CoffeeMachine::*Maker)(int gram);
+
+private:
+    Maker GetMaker(Coffee coffee)
+    {
+        if (coffee == Americano)
+        {
+            return &CoffeeMachine::MakeAmericano;
+        }
+        else if (coffee == Cappuccino)
+        {
+            return &CoffeeMachine::MakeCappuccino;
+        }
+        else
+        {
+            return &CoffeeMachine::MakeLatte;
+        }
+    }
+
     void MakeAmericano(int gram)
     {
         m_source.AddCoffee(gram / 2);
