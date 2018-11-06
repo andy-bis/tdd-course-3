@@ -44,7 +44,8 @@ enum Coffee
 {
     Americano,
     Cappuccino,
-    Latte
+    Latte,
+    Marochino
 };
 
 class MockSourceOfIngredients : public ISourceOfIngredients
@@ -72,6 +73,14 @@ public:
     {
         int gram = cup == Cup::Big ? 140 : 100;
         m_source.SetCupSize(gram);
+
+        if (coffee == Marochino)
+        {
+            m_source.AddChocolate(25);
+            m_source.AddCoffee(25);
+            m_source.AddMilkFoam(25);
+            return;
+        }
 
         Maker make = GetMaker(coffee);
         (this->*make)(gram);
