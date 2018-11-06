@@ -61,25 +61,25 @@ public:
 class CoffeeMachine
 {
 public:
-    CoffeeMachine(ISourceOfIngredients& source) : m_source(source)
+    CoffeeMachine(ISourceOfIngredients& source)
+        : m_source(source)
     {
-
     }
+
     void CreateCoffee(const Cup cup, const Coffee coffee)
     {
-        if (cup == Cup::Big)
-        {
-            m_source.AddCoffee(70);
-            m_source.SetCupSize(140);
-            m_source.AddWater(70, 60);
-        }
-        else
-        {
-            m_source.AddCoffee(50);
-            m_source.SetCupSize(100);
-            m_source.AddWater(50, 60);
-        }
+        int gram = cup == Cup::Big ? 140 : 100;
+        m_source.SetCupSize(gram);
+        MakeAmericano(gram);
     }
+
+private:
+    void MakeAmericano(int gram)
+    {
+        m_source.AddCoffee(gram / 2);
+        m_source.AddWater(gram / 2, 60);
+    }
+
 private:
     ISourceOfIngredients& m_source;
 };
