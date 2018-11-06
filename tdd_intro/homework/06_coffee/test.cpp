@@ -149,3 +149,17 @@ TEST(CoffeeMachine, NormalCappuccino)
 
     cm.CreateCoffee(Cup::Normal, Coffee::Cappuccino);
 }
+
+TEST(CoffeeMachine, BigCappuccino)
+{
+    StrictMock<MockSourceOfIngredients> si;
+    CoffeeMachine cm(si);
+
+    EXPECT_CALL(si, SetCupSize(140));
+    EXPECT_CALL(si, AddMilk(46));
+    EXPECT_CALL(si, AddCoffee(47));
+    EXPECT_CALL(si, AddMilkFoam(47));
+
+    cm.CreateCoffee(Cup::Big, Coffee::Cappuccino);
+}
+
