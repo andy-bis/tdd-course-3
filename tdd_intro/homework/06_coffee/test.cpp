@@ -84,20 +84,15 @@ private:
 private:
     Maker GetMaker(Coffee coffee)
     {
-        if (coffee == Americano)
+        switch (coffee)
         {
+        case Americano:
             return &CoffeeMachine::MakeAmericano;
-        }
-        else if (coffee == Cappuccino)
-        {
+        case Cappuccino:
             return &CoffeeMachine::MakeCappuccino;
-        }
-        else if (coffee == Latte)
-        {
+        case Latte:
             return &CoffeeMachine::MakeLatte;
-        }
-        else
-        {
+        case Marochino:
             return &CoffeeMachine::MakeMarochino;
         }
     }
@@ -250,4 +245,3 @@ TEST(CoffeeMachine, BigMarochino)
 
     cm.CreateCoffee(Cup::Big, Coffee::Marochino);
 }
-
