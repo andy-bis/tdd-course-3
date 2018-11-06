@@ -79,31 +79,12 @@ private:
 // Class-Mock SourceOfIngredients
 
 // Tests list:
-// 1. americano + 100 gram = 1 coffe
+// 1. americano + 100 gram = 1 coffee
 // 2. americano + 140 gram = 1 large coffee
 // 3. AddCoffee, SetCupSize and AddWater calls once
 // 4. Check parameters
 // 5. Same for each recipe
 
-TEST(CoffeeMachine, CoffemachineIsHere)
-{
-    MockSourceOfIngredients si;
-    CoffeeMachine cm(si);
-}
-
-TEST(CoffeeMachine, CallsImportantThings)
-{
-    MockSourceOfIngredients si;
-    CoffeeMachine cm(si);
-
-    EXPECT_CALL(si, AddCoffee(::testing::_)).Times(1);
-    EXPECT_CALL(si, SetCupSize(::testing::_)).Times(1);
-    EXPECT_CALL(si, AddWater(::testing::_, ::testing::_)).Times(1);
-
-    cm.CreateCoffee(Cup::Normal, Coffee::Americano);
-}
-
-//- americano: water & coffee 1/2 Water temp 60C
 TEST(CoffeeMachine, Americano)
 {
     MockSourceOfIngredients si;
